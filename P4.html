@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meal Planner & Grocery List Generator</title>
+  <link rel="stylesheet" href="P4.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>Meal Planner &amp; Grocery List Generator</h1>
+    <p>Plan your meals for the week and generate a combined grocery list.</p>
+  </header>
+
+  <!-- Top Navigation: Day Tabs -->
+  <nav class="day-tabs" id="day-tabs">
+    <button class="day-tab active" data-day="Monday">Monday</button>
+    <button class="day-tab" data-day="Tuesday">Tuesday</button>
+    <button class="day-tab" data-day="Wednesday">Wednesday</button>
+    <button class="day-tab" data-day="Thursday">Thursday</button>
+    <button class="day-tab" data-day="Friday">Friday</button>
+    <button class="day-tab" data-day="Saturday">Saturday</button>
+    <button class="day-tab" data-day="Sunday">Sunday</button>
+  </nav>
+
+  <main class="planner-layout">
+    <!-- Left Input Panel -->
+    <section class="panel panel-left">
+      <h2>Meal Entry for <span id="current-day-label">Monday</span></h2>
+
+      <div class="form-group">
+        <label for="meal-name">Meal Name</label>
+        <input type="text" id="meal-name" placeholder="Meatball Sub Sandwiches" />
+      </div>
+
+      <div class="form-group">
+        <label for="meal-category">Category</label>
+        <select id="meal-category">
+          <option value="Breakfast">Breakfast</option>
+          <option value="Lunch">Lunch</option>
+          <option value="Dinner">Dinner</option>
+          <option value="Snack">Snack</option>
+        </select>
+      </div>
+
+      <fieldset class="form-group">
+        <legend>Meal Slot</legend>
+        <label>
+          <input type="radio" name="meal-slot" value="breakfast" checked />
+          Breakfast
+        </label>
+        <label>
+          <input type="radio" name="meal-slot" value="lunch" />
+          Lunch
+        </label>
+        <label>
+          <input type="radio" name="meal-slot" value="dinner" />
+          Dinner
+        </label>
+        <label>
+          <input type="radio" name="meal-slot" value="snack" />
+          Snack
+        </label>
+      </fieldset>
+
+      <div class="form-group">
+        <label for="meal-ingredients">Ingredients (comma separated)</label>
+        <input
+          type="text"
+          id="meal-ingredients"
+          placeholder="ground beef, hoagie rolls, cheese, marinara"
+        />
+      </div>
+
+      <div class="button-row">
+        <button id="add-meal-btn" class="primary-btn">Add / Update Meal</button>
+        <button id="clear-day-btn" class="secondary-btn">Clear Day</button>
+      </div>
+    </section>
+
+    <!-- Right Panel: Meals for Selected Day -->
+    <section class="panel panel-right">
+      <h2>Planned Meals for <span id="planned-day-label">Monday</span></h2>
+
+      <div class="meal-slots">
+        <!-- Breakfast slot -->
+        <div class="meal-slot" data-slot="breakfast">
+          <div class="meal-slot-header">
+            <h3>Breakfast</h3>
+          </div>
+          <p class="meal-title">Empty</p>
+          <div class="meal-actions">
+            <button class="edit-meal-btn" data-slot="breakfast">Edit</button>
+            <button class="delete-meal-btn" data-slot="breakfast">X</button>
+          </div>
+        </div>
+
+        <!-- Lunch slot -->
+        <div class="meal-slot" data-slot="lunch">
+          <div class="meal-slot-header">
+            <h3>Lunch</h3>
+          </div>
+          <p class="meal-title">Empty</p>
+          <div class="meal-actions">
+            <button class="edit-meal-btn" data-slot="lunch">Edit</button>
+            <button class="delete-meal-btn" data-slot="lunch">X</button>
+          </div>
+        </div>
+
+        <!-- Dinner slot -->
+        <div class="meal-slot" data-slot="dinner">
+          <div class="meal-slot-header">
+            <h3>Dinner</h3>
+          </div>
+          <p class="meal-title">Empty</p>
+          <div class="meal-actions">
+            <button class="edit-meal-btn" data-slot="dinner">Edit</button>
+            <button class="delete-meal-btn" data-slot="dinner">X</button>
+          </div>
+        </div>
+
+        <!-- Snack slot -->
+        <div class="meal-slot" data-slot="snack">
+          <div class="meal-slot-header">
+            <h3>Snack</h3>
+          </div>
+          <p class="meal-title">Empty</p>
+          <div class="meal-actions">
+            <button class="edit-meal-btn" data-slot="snack">Edit</button>
+            <button class="delete-meal-btn" data-slot="snack">X</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Bottom: Grocery List Section -->
+  <section class="grocery-section">
+    <div class="button-row">
+      <button id="generate-list-btn" class="primary-btn">
+        Generate Grocery List for Week
+      </button>
+      <button id="clear-list-btn" class="secondary-btn">Clear List</button>
+    </div>
+
+    <h2>Grocery List</h2>
+    <p class="grocery-hint">
+      Ingredients from all planned meals will appear here as checkboxes.
+    </p>
+    <ul id="grocery-list" class="grocery-list">
+      <!-- Grocery list items will be added here dynamically -->
+    </ul>
+  </section>
+
+  <footer class="app-footer">
+    <p>Project 4 &mdash; Meal Planner &amp; Grocery List Generator &middot; Jorden Eifert &middot; CS-111</p>
+  </footer>
+
+  <script src="P4.js"></script>
+</body>
+</html>

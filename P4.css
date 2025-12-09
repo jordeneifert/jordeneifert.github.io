@@ -1,0 +1,301 @@
+/* styles.css
+Meal Planner & Grocery List Generator
+Jorden Eifert - CS-111 - Project 4
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: #f5f7fb;
+  color: #222;
+}
+
+.app-header {
+  background: #2f855e;
+  color: #fff;
+  padding: 1rem 1.5rem;
+}
+
+.app-header h1 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.6rem;
+}
+
+.app-header p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* Day Tabs */
+
+.day-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #c7d0e3;
+}
+
+/* Constrain top-level horizontal sections for better centering */
+.day-tabs,
+.planner-layout,
+.grocery-section {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.day-tab {
+  border: none;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  background: #ffffff;
+  cursor: pointer;
+  font-size: 0.9rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  transition: background 0.2s, color 0.2s, transform 0.1s;
+}
+
+.day-tab:hover {
+  transform: translateY(-1px);
+}
+
+.day-tab.active {
+  background: #2f855e;
+  color: #fff;
+}
+
+/* Layout */
+
+.planner-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+}
+
+.panel {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.panel-left {
+  flex: 1 1 280px;
+}
+
+.panel-right {
+  flex: 1 1 280px;
+}
+
+.panel h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
+/* Form elements */
+
+.form-group {
+  margin-bottom: 0.75rem;
+}
+
+.form-group label,
+fieldset legend {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 0.45rem 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #c5c9d8;
+  font-size: 0.9rem;
+}
+
+fieldset {
+  border: 1px solid #c5c9d8;
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem 0.6rem;
+}
+
+fieldset label {
+  margin-right: 0.75rem;
+  font-size: 0.9rem;
+}
+
+/* Buttons */
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+button {
+  font-family: inherit;
+}
+
+.primary-btn,
+.secondary-btn {
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  border: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.primary-btn {
+  background: #2f4f85;
+  color: #fff;
+}
+
+.primary-btn:hover {
+  background: #2f855e;
+  transform: translateY(-1px);
+}
+
+.secondary-btn {
+  background: #e5e8f2;
+  color: #222;
+}
+
+.secondary-btn:hover {
+  background: #d4d8e7;
+  transform: translateY(-1px);
+}
+
+/* Meal slots */
+
+.meal-slots {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.7rem;
+}
+
+/* Two-column layout on wider screens */
+@media (min-width: 900px) {
+  .meal-slots {
+    grid-template-columns: 1fr 1fr;
+  }
+  .panel-left {
+    flex: 0 0 360px;
+  }
+  .panel-right {
+    flex: 1 1 720px;
+  }
+}
+
+.meal-slot {
+  border: 1px solid #d2d7e6;
+  border-radius: 6px;
+  padding: 0.6rem 0.7rem;
+  background: #f9fafc;
+}
+
+.meal-slot-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.meal-slot h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.meal-title {
+  margin: 0.35rem 0 0.35rem 0;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.meal-title.empty {
+  color: #888;
+  font-style: italic;
+}
+
+.meal-actions {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.meal-actions button {
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  border: none;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.meal-actions .edit-meal-btn {
+  background: #ffffff;
+  border: 1px solid #c5c9d8;
+}
+
+.meal-actions .delete-meal-btn {
+  background: #f7d1d1;
+  border: 1px solid #e6a5a5;
+}
+
+/* Grocery section */
+
+.grocery-section {
+  background: #ffffff;
+  margin: 0 1.5rem 1.5rem;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.grocery-section h2 {
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.grocery-hint {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.grocery-list {
+  list-style: none;
+  padding-left: 0;
+  max-height: 220px;
+  overflow-y: auto;
+  margin-top: 0.5rem;
+  border-top: 1px solid #e0e3f0;
+}
+
+.grocery-list li {
+  padding: 0.35rem 0.1rem;
+  border-bottom: 1px solid #edf0fb;
+  font-size: 0.9rem;
+}
+
+.grocery-list label {
+  cursor: pointer;
+}
+
+.grocery-list input[type="checkbox"] {
+  margin-right: 0.45rem;
+}
+
+/* Footer */
+
+.app-footer {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #666;
+  padding: 0.75rem 1.5rem 1rem;
+}
